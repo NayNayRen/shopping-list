@@ -1,6 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function ({ title }: any) {
+// typescript makes you define the props(title) data type
+type headerProps = { title: string };
+
+export default function Header({ title }: headerProps) {
 	return (
 		<View style={styles.header}>
 			<Text style={styles.text}>{title}</Text>
