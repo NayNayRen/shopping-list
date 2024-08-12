@@ -4,19 +4,32 @@ import uuid from "react-native-uuid";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
+// have to set the props(id) data type when being passed
+type itemId = { id: any };
+
 export default function Index() {
+	// setItems is the function name used to interact with items(state)
 	const [items, setItems] = useState([
 		{ id: uuid.v4(), text: "Butter" },
 		{ id: uuid.v4(), text: "Milk" },
 		{ id: uuid.v4(), text: "Bread" },
 	]);
 
+	const deleteItem = (props: itemId) => {
+		setItems((previousList) => {
+			// filtering each item, bring back items that don't match the id passed as a prop
+			return previousList.filter((item) => item.id != props.id);
+		});
+	};
+
 	return (
 		<View style={styles.container}>
 			<Header title='Shopping List' />
 			<FlatList
 				data={items}
-				renderItem={({ item }) => <ListItem item={item} />}
+				renderItem={({ item }) => (
+					<ListItem item={item} deleteItem={deleteItem} />
+				)}
 			/>
 			<Image
 				source={require("@/assets/images/pw-logo.png")}
