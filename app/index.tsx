@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
 // have to set the props(id) data type when being passed
-type itemId = { id: any };
+type itemId = { id: string };
 
 export default function Index() {
 	// setItems is the function name used to interact with items(state)
@@ -15,10 +15,10 @@ export default function Index() {
 		{ id: uuid.v4(), text: "Bread" },
 	]);
 
-	const deleteItem = (props: itemId) => {
+	const deleteItem = ({ id }: itemId) => {
 		setItems((previousList) => {
 			// filtering each item, bring back items that don't match the id passed as a prop
-			return previousList.filter((item) => item.id != props.id);
+			return previousList.filter((item) => item.id != id);
 		});
 	};
 
