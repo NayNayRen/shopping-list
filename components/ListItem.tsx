@@ -13,10 +13,10 @@ export default function ListItem(
 			<View style={styles.listItemView}>
 				<Text style={styles.listItemText}>{item.text}</Text>
 				<FontAwesome
-					name='close'
+					name="close"
 					size={24}
-					color='red'
-					onPress={() => deleteItem(item.id)}
+					color="red"
+					onClick={() => deleteItem(item.id)}
 				/>
 			</View>
 		</TouchableOpacity>

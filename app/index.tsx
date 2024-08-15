@@ -24,7 +24,7 @@ export default function Index() {
 
 	return (
 		<View style={styles.container}>
-			<Header title='Shopping List' />
+			<Header title="Shopping List" />
 			<FlatList
 				data={items}
 				renderItem={({ item }) => (
