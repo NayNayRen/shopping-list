@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-// typescript makes you define the props(title) data type
 
 export default function ListItem({ item, handlePress }) {
 	return (
