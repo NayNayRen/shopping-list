@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-export default function ListItem({ item, handlePress }) {
+// passed props of item and deleteItem function from index.jsx
+export default function ListItem({ item, deleteItem }) {
 	return (
 		<TouchableOpacity style={styles.listItem}>
 			<View style={styles.listItemView}>
@@ -10,7 +11,7 @@ export default function ListItem({ item, handlePress }) {
 					name="close"
 					size={24}
 					color="red"
-					onPress={() => handlePress(item.id)}
+					onPress={() => deleteItem(item.id)}
 				/>
 			</View>
 		</TouchableOpacity>
